@@ -17,11 +17,11 @@ pol_movies = pd.read_parquet('processed_datasets/polarizing_movies.parquet')
 # APP
 dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.MORPH, dbc_css])
+app = Dash(__name__, external_stylesheets=[dbc.themes.DARKLY, dbc_css])
 server = app.server
 
 
-load_figure_template("MORPH")
+load_figure_template("DARKLY")
 
 
 app.layout = dbc.Container([
