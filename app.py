@@ -11,7 +11,7 @@ import dash_bootstrap_components as dbc
 
 sent_analysis = pd.read_parquet('processed_datasets/tags_sentiment.parquet')
 top_rtd = pd.read_parquet('processed_datasets/top_rtd_dcd.parquet')
-
+pol_movies = pd.read_parquet('processed_datasets/polarizing_movies.parquet')
 
 
 # APP
