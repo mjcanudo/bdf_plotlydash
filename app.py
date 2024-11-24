@@ -81,13 +81,13 @@ app.layout = dbc.Container([
                         multi=True),
                     html.Br(),
                     html.Br(),
-                    dcc.Markdown("Minimum Number of Ratings:"),
-                    dcc.Slider(
+                    dcc.Markdown("Number of Ratings:"),
+                    dcc.RangeSlider(
                         id="ratingnum_slider",
                         min=1,
                         max=300,
                         step=20,
-                        value=1)], width=10),
+                        value=[1, 300])], width=10),
                     html.Br()
 
 
@@ -149,8 +149,8 @@ def movie_bar_chart(decade):
             )
 
 def pol_movie_bar_chart(decades, ratingnum):
-    ratingnum = int(ratingnum)
-    figure = px.scatter(pol_movies.query(f' decade in @decades and rating_count >= @ratingnum '),
+    #ratingnum = int(ratingnum)
+    figure = px.scatter(pol_movies.query(f' decade in @decades and (@ratingnum[0] <= rating_count <= @ratingnum[1])  '),
                     x="rating_stddev",
                     y='rating_count',
                     template="plotly_dark",
